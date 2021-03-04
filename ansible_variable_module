@@ -43,4 +43,13 @@ cmd:   ansible-playbook playbookname -e "x=33"
                          (or)
        ansible-playbook playbookname --extra-vars "x=33" 
    
+3)we have another option called private while usin variables.we can give this option under prompt
+ private yes(means while you entering a value through command line it won't display what you are entering.it will keep it private)
+ private no (means while you entering a value through command line it will display what you are entering)
+ 
+ usage:       
+ vars_prompt:
+    name: y
+    prompt: enter the value for y
+    private: yes (or) no
 

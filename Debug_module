@@ -1,0 +1,5 @@
+#Using debug module we can print any statements or variables or any expressions.
+#debug module accepts 3 parameters.
+*msg
+*var(variable)
+*verbosity

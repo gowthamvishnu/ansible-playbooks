@@ -1,0 +1,46 @@
+#Inputs and Outputs of Ansible playbook (or) how to read and print a variable value?
+---
+ - hosts: all
+   become: yes
+   vars:
+    x: 45
+    my_name: "vishnu"
+   tasks:
+    - debug:
+       msg:
+        - "The x value is: {{x}}"
+        - "The my_nmae value is: {{my_name}}"
+        
+        
+ # If we want to read the variable values we use variable_promt
+ # Variable_promt contains 2sections
+ 1.name (varible name)
+ 2.promt(to display the messge in commandline)
+  #Usage
+  
+  
+  ---
+ - hosts: all
+   become: yes
+   vars:
+    x: 45
+    my_name: "vishnu"
+   vars_prompt:
+    name: y
+    prompt: enter the value for y
+   tasks:
+    - debug:
+       msg:
+        - "The x value is: {{x}}"
+        - "The my_name value is: {{my_name}}"
+        - "The value of y is: {{y}}"
+Note:you can define variable in yaml or in host file as well.
+*If you want to override the variable the command line has the highest priority.
+*In the about example x value is 45 but when you are executing playbook,
+if you pass another value to the variable through command line it will override with the command line value by following command
+
+cmd:   ansible-playbook playbookname -e "x=33"
+                         (or)
+       ansible-playbook playbookname --extra-vars "x=33" 
+   
+
